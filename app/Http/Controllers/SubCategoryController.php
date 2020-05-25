@@ -34,7 +34,7 @@ class SubCategoryController extends Controller
     }
 
     public function show($subcategory){
-        $subCategory = SubCategory::findOrFail($subcategory);
+        $subCategory = SubCategory::find($subcategory);
         return $subCategory;
     }
 
