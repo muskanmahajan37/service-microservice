@@ -6,13 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    //
     protected $guarded = [];
+    protected $hidden = ['created_at', 'updated_at'];
 
-    public function categories(){
+    public function categories()
+    {
         return $this->belongsTo(Category::class);
     }
-//    public function users(){
-//        return $this->belongsTo(User::class);
-//    }
 }

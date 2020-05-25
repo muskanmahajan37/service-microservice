@@ -9,10 +9,9 @@ use Illuminate\Http\Request;
 class SubCategoryController extends Controller
 {
 
-
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'name' => 'required|string',
             'category_id' => 'required',
         ]);
@@ -22,25 +21,28 @@ class SubCategoryController extends Controller
             'category_id' => $request->category_id
         ]);
         $subCategory->save();
+
         return response()->json([
-            'message' => 'Successfully created SubCategory!'
+            'Message' => 'Successfully created SubCategory!',
+            'Subcategory' => $subCategory
         ], 201);
     }
+
     public function findByCategory(Category $category)
     {
         $subCategories = $category->load("subcategories");
         $subFiltred = $subCategories["subcategories"];
-        return $subFiltred;
+        return response()->json($subFiltred, 201);
     }
 
-    public function show($subcategory){
+    public function show($subcategory)
+    {
         $subCategory = SubCategory::find($subcategory);
-        return response()->json([
-            'subcategory' => $subcategory
-        ], 201);
+        return response()->json($subcategory, 201);
     }
 
-    public function update($id){
+    public function update($id)
+    {
         $subCategory = SubCategory::findOrFail($id);
     }
 }
