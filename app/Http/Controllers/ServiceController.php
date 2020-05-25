@@ -3,16 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Service;
+use http\Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Database\Eloquent;
 use Illuminate\Facades\Storage;
 use DB;
 use PhpOption\None;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class ServiceController extends Controller
 {
+
+    public function index()
+    {
+        $service = Service::all();
+        return response()->json(
+            $service, 201
+        );
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -47,10 +59,19 @@ class ServiceController extends Controller
         ], 201);
     }
 
+//    public function show(Service $service)
+//    {
+//        if(!$service){
+//            return NotFoundResourceException::class;
+//        }
+//        return $service;
+//    }
     public function show(Service $service)
     {
-        return response()->json($service, 201);
+     return $service;
     }
+
+
 
     public function findByUser(Request $request)
     {
@@ -102,11 +123,6 @@ class ServiceController extends Controller
         ], 201);
     }
 
-    public function index()
-    {
-        $service = Service::all();
-        return $service;
-    }
 
     public function update(Request $request, Service $service)
     {
@@ -114,7 +130,6 @@ class ServiceController extends Controller
             'name' => 'string',
             'description' => 'string',
             'image' => 'string',
-            //            'price'=>'double'
 
         ]);
         if ($request->hasFile('image')) {
