@@ -22,13 +22,8 @@ class ServiceController extends Controller
         ]);
         if ($request->hasFile('image')) {
             $filenameWithExt = $request->file('image')->getClientOriginalName();
-            //Get just filename
-            //filename permban emrin e file , edhe path info
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //Get just ext
-            //extension permaban ext(ex.jpeg,png)/filename veq emrin orgjinal qysh ja len
             $extension = $request->file('image')->getClientOriginalExtension();
-            //filenametoStore eshte variabla e fundit e cila permban emrin e file psh taulantimage-kohen-extention psh jpeg.
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
         } else {
             $fileNameToStore = 'noimage.jpg';
@@ -66,13 +61,8 @@ class ServiceController extends Controller
         ]);
         if ($request->hasFile('image')) {
             $filenameWithExt = $request->file('image')->getClientOriginalName();
-            //Get just filename
-            //filename permban emrin e file , edhe path info
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //Get just ext
-            //extension permaban ext(ex.jpeg,png)/filename veq emrin orgjinal qysh ja len
             $extension = $request->file('image')->getClientOriginalExtension();
-            //filenametoStore eshte variabla e fundit e cila permban emrin e file psh taulantimage-kohen-extention psh jpeg.
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
         } else {
             $fileNameToStore = 'noimage.jpg';
@@ -122,14 +112,8 @@ class ServiceController extends Controller
         ]);
         if ($request->hasFile('image')) {
             $filenameWithExt = $request->file('image')->getClientOriginalName();
-            //Get just filename
-            //filename permban emrin e file , edhe path info
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //Get just ext
-            //extension permaban ext(ex.jpeg,png)/filename veq emrin orgjinal qysh ja len
             $extension = $request->file('image')->getClientOriginalExtension();
-            //filenametoStore eshte variabla e fundit e cila permban emrin e file psh taulantimage-kohen-extention psh jpeg.
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
@@ -137,7 +121,6 @@ class ServiceController extends Controller
         $serviceToUpdate = $service;
         $serviceToUpdate->name = request()->input("name");
         $serviceToUpdate->image = request()->input("image");
-//        $serviceToUpdate->name = request()->input("name");
         $serviceToUpdate->price = request()->input("price");
         $serviceToUpdate->description = request()->input("description");
         $serviceToUpdate->save();
