@@ -40,18 +40,10 @@ class ServiceController extends Controller
             'subcategory_id' => $request->subcategory_id,
         ]);
         $service->save();
-        $serviceFiltered = new Service();
-        $serviceFiltered->name = $service->name;
-        $serviceFiltered->category_id = $service->category_id;
-        $serviceFiltered->user_id = $service->user_id;
-        $serviceFiltered->price = $service->price;
-        $serviceFiltered->description = $service->description;
-        $serviceFiltered->image = $service->image;
-        $serviceFiltered->subcategory_id = $service->subcategory_id;
 
         return response()->json([
             'message' => 'Successfully created Service!',
-            'Service' => $serviceFiltered
+            'Service' => $service
         ], 201);
     }
 
