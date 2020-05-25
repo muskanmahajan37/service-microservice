@@ -83,14 +83,16 @@ class ServiceController extends Controller
             'message' => 'Successfully created Service!'
         ], 201);
     }
-    public function show(Service $service){
+    public function show($service){
+        $service = Service::findOrFail($service);
         return response()->json([
             'service' => $service,
         ], 201);
     }
 
-    public function destroy(Service $service)
+    public function destroy($service)
     {
+        $service = Service::findOrFail($service);
         $service->delete();
         return response()->json([
             'message' => 'Successfully deleted Service!'
