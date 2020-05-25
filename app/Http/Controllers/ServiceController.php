@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Contracts\Database\Eloquent;
 use Illuminate\Facades\Storage;
 use DB;
+use PhpOption\None;
 
 
 class ServiceController extends Controller
@@ -37,11 +38,16 @@ class ServiceController extends Controller
             'description' => $request->description,
             'image' => $fileNameToStore,
             'subcategory_id' => $request->subcategory_id,
-
         ]);
         $service->save();
         return response()->json([
             'message' => 'Successfully created Service!'
+        ], 201);
+    }
+
+    public function show(Service $service){
+        return response()->json([
+            'service' => $service
         ], 201);
     }
 
@@ -83,12 +89,7 @@ class ServiceController extends Controller
             'message' => 'Successfully created Service!'
         ], 201);
     }
-    public function show($service){
-        $service = Service::findOrFail($service);
-        return response()->json([
-            'service' => $service,
-        ], 201);
-    }
+
 
     public function destroy($service)
     {
