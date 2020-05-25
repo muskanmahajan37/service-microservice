@@ -40,20 +40,30 @@ class ServiceController extends Controller
             'subcategory_id' => $request->subcategory_id,
         ]);
         $service->save();
+        $serviceFiltered = new Service();
+        $serviceFiltered->name = $service->name;
+        $serviceFiltered->category_id = $service->category_id;
+        $serviceFiltered->user_id = $service->user_id;
+        $serviceFiltered->price = $service->price;
+        $serviceFiltered->description = $service->description;
+        $serviceFiltered->image = $service->image;
+        $serviceFiltered->subcategory_id = $service->subcategory_id;
+
         return response()->json([
-            'message' => 'Successfully created Service!'
+            'message' => 'Successfully created Service!',
+            'Service' => $serviceFiltered
         ], 201);
     }
 
-    public function show(Service $service){
-        return response()->json([
-            'service' => $service
-        ], 201);
+    public function show(Service $service)
+    {
+        return response()->json($service, 201);
     }
 
-    public function findByUser(Request $request){
+    public function findByUser(Request $request)
+    {
         $id = $request->get('id');
-        return Service::where('user_id',$id)->get();
+        return Service::where('user_id', $id)->get();
     }
 
     public function edit(Request $request, $id)
@@ -61,7 +71,7 @@ class ServiceController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'category_id' => 'required',
-//            'user_id'=>'required',
+            //            'user_id'=>'required',
             'price' => 'required',
             'description' => 'required'
         ]);
@@ -105,12 +115,14 @@ class ServiceController extends Controller
         $service = Service::all();
         return $service;
     }
-    public function update(Request $request,Service $service){
+
+    public function update(Request $request, Service $service)
+    {
         $this->validate($request, [
             'name' => 'string',
-            'description'=>'string',
-            'image'=>'string',
-//            'price'=>'double'
+            'description' => 'string',
+            'image' => 'string',
+            //            'price'=>'double'
 
         ]);
         if ($request->hasFile('image')) {
@@ -129,11 +141,7 @@ class ServiceController extends Controller
         $serviceToUpdate->save();
         return response()->json([
             'message' => 'Updated!',
-            'service'=> $serviceToUpdate
+            'service' => $serviceToUpdate
         ], 201);
-
     }
-
-
-
 }
