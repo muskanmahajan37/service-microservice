@@ -93,7 +93,7 @@ class ServiceController extends Controller
 
     public function destroy($service)
     {
-        $service = Service::findOrFail($service);
+        $service = Service::find($service)->first();
         $service->delete();
         return response()->json([
             'message' => 'Successfully deleted Service!'
