@@ -35,9 +35,7 @@ class SubCategoryController extends Controller
 
     public function show($subcategory){
         $subCategory = SubCategory::find($subcategory);
-        return response()->json([
-            'subcategory' => $subcategory
-        ], 201);
+        return response()->json($subcategory, 201);
     }
 
     public function update($id){
