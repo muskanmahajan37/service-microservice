@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use App\SubCategory;
+
 class SubCategorySeeder extends Seeder
 {
-
     public function run()
     {
         SubCategory::create(['category_id'=>1, 'name'=>'Subcategory1']);
@@ -60,6 +60,7 @@ class SubCategorySeeder extends Seeder
         SubCategory::create(['category_id'=>9, 'name'=>'Subcategory3']);
         SubCategory::create(['category_id'=>9, 'name'=>'Subcategory4']);
         SubCategory::create(['category_id'=>9, 'name'=>'Subcategory5']);
+
 
 
     }
