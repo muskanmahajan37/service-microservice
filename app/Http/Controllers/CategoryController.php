@@ -32,15 +32,11 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return $category;
+        $subcategories =$category->load("subcategories");
+
+        return $subcategories;
     }
 
-    public function findByCategory(Category $category)
-    {
-        $subCategories = $category->load("subcategories");
-        $subFiltred = $subCategories["subcategories"];
-        return response()->json($subFiltred, 201);
-    }
 
     public function show(Category $category)
     {
