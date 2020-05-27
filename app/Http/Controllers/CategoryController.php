@@ -35,12 +35,6 @@ class CategoryController extends Controller
         return $category;
     }
 
-    public function findByCategory(Category $category)
-    {
-        $subCategories = $category->load("subcategories");
-        $subFiltred = $subCategories["subcategories"];
-        return response()->json($subFiltred, 201);
-    }
 
     public function show(Category $category)
     {
