@@ -28,6 +28,7 @@ $router->get('categories/{category}/subcategories', 'SubCategoryController@findB
 
 
 $router->post('subcategories', 'SubCategoryController@store');
+$router->get('subcategories', 'SubCategoryController@index');
 $router->get('subcategories/{subcategory}', 'SubCategoryController@show');
 $router->put('subcategories/{subcategory}', 'SubCategoryController@update');
 
