@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Service;
+use App\SubCategory;
 use http\Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -41,12 +42,12 @@ class ServiceController extends Controller
 //        dd($request->all());
 
        return request()->all();
+        $image = $request->file('image');
 
 
 
 
 
-//        $image = $request->file('image');
 //        return $image;
 //        $new_name =$image->getClientOriginalExtension();
 //        $image->move(base_path('public/images'), $new_name);
@@ -81,11 +82,11 @@ class ServiceController extends Controller
      return $service;
     }
 
-    public function findByUser(Request $request)
-    {
-        $id = $request->get('id');
-        return Service::where('user_id', $id)->get();
-    }
+//    public function findByUser(Request $request)
+//    {
+//        $id = $request->get('id');
+//        return Service::where('user_id', $id)->get();
+//    }
 
     public function edit(Request $request, $id)
     {
@@ -165,5 +166,13 @@ class ServiceController extends Controller
         $services = $category->load("services");
         return $services->services;
     }
+    public function findBySubCategory(SubCategory $subcategory){
 
+        $services = Service::where('subcategory_id',$subcategory->id)->get();
+        return $services;
+    }
+    public function findByUser($user){
+        $services = Service::where('user_id',$user)->get();
+        return $services;
+    }
 }
