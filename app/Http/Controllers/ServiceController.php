@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Service;
 use http\Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -158,4 +159,11 @@ class ServiceController extends Controller
             'service' => $serviceToUpdate
         ], 201);
     }
+
+    public function findByCategory(Category $category)
+    {
+        $services = $category->load("services");
+        return $services->services;
+    }
+
 }
