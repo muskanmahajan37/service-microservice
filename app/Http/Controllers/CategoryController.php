@@ -33,7 +33,6 @@ class CategoryController extends Controller
     {
         $category = Category::all();
         $subcategories =$category->load("subcategories");
-
         return $subcategories;
     }
 
