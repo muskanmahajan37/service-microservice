@@ -7,19 +7,10 @@ use Illuminate\Http\Response;
 
 class AuthenticateAccess
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
-     *
-     * @return mixed
-     */
     public function handle($request, Closure $next)
     {
-
         $validSecrets = explode(',', env('ACCEPTED_SECRET'));
-        if (in_array($request->header('Authorization'), $validSecrets, true)) {
+        if (in_array($request->header('ApiAccessKey'), $validSecrets, true)) {
 
             return $next($request);
         }
