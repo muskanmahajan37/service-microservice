@@ -15,5 +15,6 @@ class AuthenticateAccess
             return $next($request);
         }
         abort(Response::HTTP_UNAUTHORIZED);
+
     }
 }
