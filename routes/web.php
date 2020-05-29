@@ -19,6 +19,7 @@ $router->get('/', function () use ($router) {
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->post('test','TestController@store');
 
 $router->post('categories', 'CategoryController@store');
 $router->get('categories','CategoryController@index');
