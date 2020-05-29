@@ -12,14 +12,14 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::create(['name'=>'Programming', 'description'=>'Some Description']);
-        Category::create(['name'=>'Economy', 'description'=>'Some Description']);
-        Category::create(['name'=>'Music', 'description'=>'Some Description']);
-        Category::create(['name'=>'Writting & Translation', 'description'=>'Some Description']);
-        Category::create(['name'=>'Marketing', 'description'=>'Some Description']);
-        Category::create(['name'=>'Graphics & Design', 'description'=>'Some Description']);
-        Category::create(['name'=>'Business', 'description'=>'Some Description']);
-        Category::create(['name'=>'Lifestyle', 'description'=>'Some Description']);
-        Category::create(['name'=>'Industries', 'description'=>'Some Description']);
+        Category::create(['name' => 'Programming', 'description' => 'Get all the technical bells and whistles without paying for a programming degree']);
+        Category::create(['name' => 'Economy', 'description' => 'Your business = your passion. Outsource smaller tasks so you can focus on growth']);
+        Category::create(['name' => 'Music', 'description' => 'You have a message. Let the world hear it with music, audio & voice services']);
+        Category::create(['name' => 'Writting & Translation', 'description' => 'Have a way with words. Get copy, translation & editorial work from freelancers']);
+        Category::create(['name' => 'Marketing', 'description' => 'Update and upgrade your business online']);
+        Category::create(['name' => 'Graphics & Design', 'description' => 'A single place, millions of creative talents']);
+        Category::create(['name' => 'Business', 'description' => 'Your business = your passion.']);
+        Category::create(['name' => 'Lifestyle', 'description' => 'Improve your quality of life with style']);
+        Category::create(['name' => 'Industries', 'description' => 'Biggest industries.']);
     }
 }
