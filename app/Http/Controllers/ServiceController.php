@@ -40,6 +40,7 @@ class ServiceController extends Controller
         ]);
         $service = new Service([
             'name' => $request->name,
+            'username'=> $request->username,
             'category_id' => $request->category_id,
             'user_id' => $request->user_id,
             'price' => $request->price,
@@ -70,6 +71,7 @@ class ServiceController extends Controller
 
         $service = new Service([
             'name' => $request->name,
+            'username'=> $request->username,
             'category_id' => $request->category_id,
             'user_id' => $request->user_id,
             'price' => $request->price,
