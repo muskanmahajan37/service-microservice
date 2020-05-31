@@ -18,8 +18,5 @@ class CategorySeeder extends Seeder
         Category::create(['name' => 'Writting & Translation', 'description' => 'Have a way with words. Get copy, translation & editorial work from freelancers']);
         Category::create(['name' => 'Marketing', 'description' => 'Update and upgrade your business online']);
         Category::create(['name' => 'Graphics & Design', 'description' => 'A single place, millions of creative talents']);
-        Category::create(['name' => 'Business', 'description' => 'Your business = your passion.']);
-        Category::create(['name' => 'Lifestyle', 'description' => 'Improve your quality of life with style']);
-        Category::create(['name' => 'Industries', 'description' => 'Biggest industries.']);
     }
 }

@@ -92,37 +92,5 @@ class SubCategorySeeder extends Seeder
         SubCategory::create(['category_id'=>6, 'name'=>'Banner Ads']);
         SubCategory::create(['category_id'=>6, 'name'=>'Product Design']);
         SubCategory::create(['category_id'=>6, 'name'=>'Character Modeling']);
-
-
-        SubCategory::create(['category_id'=>7, 'name'=>'Financial Consulting']);
-        SubCategory::create(['category_id'=>7, 'name'=>'Economy Consulting']);
-        SubCategory::create(['category_id'=>7, 'name'=>'Market Research']);
-        SubCategory::create(['category_id'=>7, 'name'=>'Subcategory4']);
-        SubCategory::create(['category_id'=>7, 'name'=>'Subcategory5']);
-
-        SubCategory::create(['category_id'=>8, 'name'=>'Online Lessons']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Fitness']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Craft']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Arts']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Relationship Advice']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Health']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Astrology']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Traveling']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Gaming']);
-        SubCategory::create(['category_id'=>8, 'name'=>'Spiritual']);
-
-
-        SubCategory::create(['category_id'=>9, 'name'=>'Graphics']);
-        SubCategory::create(['category_id'=>9, 'name'=>'E-commerce']);
-        SubCategory::create(['category_id'=>9, 'name'=>'Book']);
-        SubCategory::create(['category_id'=>9, 'name'=>'Podcasting']);
-        SubCategory::create(['category_id'=>9, 'name'=>'Influencers']);
-        SubCategory::create(['category_id'=>9, 'name'=>'Real Estate']);
-        SubCategory::create(['category_id'=>9, 'name'=>'Architecture']);
-
-
-
-
-
     }
 }
