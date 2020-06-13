@@ -27,7 +27,6 @@ $router->get('categories/{category}','CategoryController@show');
 $router->put('categories/{category}','CategoryController@update');
 $router->get('categories/{category}/subcategories', 'SubCategoryController@findByCategory');
 
-
 $router->post('subcategories', 'SubCategoryController@store');
 $router->get('subcategories', 'SubCategoryController@index');
 $router->get('subcategories/{subcategory}', 'SubCategoryController@show');
@@ -38,7 +37,6 @@ $router->get('services', 'ServiceController@index');
 $router->get('categories/{category}/services', 'ServiceController@findByCategory');
 $router->get('subcategories/{subcategory}/services', 'ServiceController@findBySubCategory');
 $router->get('users/{user}/services', 'ServiceController@findByUser');
-
 $router->get('services/{service}','ServiceController@show');
 $router->patch('services/{service}','ServiceController@update');
 $router->delete('services/{service}','ServiceController@destroy');
