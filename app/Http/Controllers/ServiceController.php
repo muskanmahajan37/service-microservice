@@ -97,28 +97,21 @@ class ServiceController extends Controller
     }
 
 
-    public function update(Request $request, Service $service)
+    public function tt(){
+        return request()->all();
+    }
+
+    public function update(Request $request,Service $service)
     {
-        $this->validate($request, [
-            'name' => 'string',
-            'description' => 'string',
-            'image' => 'string',
-
-        ]);
-        if ($request->hasFile('image')) {
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('image')->getClientOriginalExtension();
-        } else {
-            $fileNameToStore = 'noimage.jpg';
-        }
-
         $serviceToUpdate = $service;
-        $serviceToUpdate->name = request()->input("name");
-        $serviceToUpdate->image = request()->input("image");
-        $serviceToUpdate->price = request()->input("price");
-        $serviceToUpdate->description = request()->input("description");
-        $serviceToUpdate->save();
+        $serviceToUpdate->name = empty($request->name) ? $service->name : request()->input("name");
+        $serviceToUpdate->image =  empty($request->image) ? $service->image : request()->input("image");
+        $serviceToUpdate->category_id =  empty($request->category_id) ? $service->category_id : request()->input("category_id");
+        $serviceToUpdate->user_id =  empty($request->user_id) ? $service->user_id : request()->input("user_id");
+        $serviceToUpdate->price =  empty($request->price) ? $service->price : request()->input("price");
+        $serviceToUpdate->description =  empty($request->description) ? $service->description : request()->input("description");
+        $serviceToUpdate->image =  empty($request->image) ? $service->image : request()->input("image");
+        $serviceToUpdate->update();
         return response()->json([
             'message' => 'Updated!',
             'service' => $serviceToUpdate
