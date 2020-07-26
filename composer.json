@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.2.5",
         "flipbox/lumen-generator": "^6.0",
+        "illuminate/notifications": "^7.17",
         "laravel/lumen-framework": "^7.0",
         "mmghv/lumen-route-binding": "^1.5"
     },
