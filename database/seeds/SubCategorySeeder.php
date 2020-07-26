@@ -25,6 +25,7 @@ class SubCategorySeeder extends Seeder
         SubCategory::create(['category_id'=>1, 'name'=>'IT']);
         SubCategory::create(['category_id'=>1, 'name'=>'.Net']);
         SubCategory::create(['category_id'=>1, 'name'=>'.C++']);
+        SubCategory::create(['category_id'=>1, 'name'=>'Wordpress']);
 
         SubCategory::create(['category_id'=>2, 'name'=>'Business Consulting']);
         SubCategory::create(['category_id'=>2, 'name'=>'Financial Consulting']);
